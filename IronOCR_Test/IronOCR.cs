@@ -58,9 +58,12 @@ namespace IronOCR_Test
             OpenFileDialog dialog = new OpenFileDialog();
             if(this.rdoNew.Checked)                         // 새로운 PDF파일을 만든다면 여러개의 파일을 선택하도록 함. (If you create a new PDF file, make sure to select multiple files.)
                 dialog.Multiselect = true;
-            dialog.InitialDirectory = @"C:\";
 
-            if(dialog.ShowDialog() == DialogResult.OK)
+            dialog.InitialDirectory = @"C:\";
+            dialog.Title = "열기";
+            dialog.Filter = "그림 파일 (*.jpg, *.jpge, *.gif, *.bmp, *.png) | *.jpg; *.jpge; *.gif; *.bmp; *png; | 모든 파일 (*.*) | *.*";
+
+            if (dialog.ShowDialog() == DialogResult.OK)
             {
                 imgfile = dialog.FileName;
                 ImageArr = dialog.FileName;
